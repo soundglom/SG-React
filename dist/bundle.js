@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "920627d461e7c0c86a68"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fd31637517a0bb70a46e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8036,25 +8036,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var EventBriteEvents = React.createClass({
-	  displayName: 'EventBriteEvents',
+	_reactDom2.default.render(_react2.default.createElement(Eventbrite, null), document.getElementById('app'));
 
-	  getInitialState: function getInitialState() {
-	    return data;
-	  },
-
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      this.state.data
-	    );
-	  }
-	});
-
-	_reactDom2.default.render(React.createElement(EventBriteEvents, { data: _eventbrite2.default }), document.getElementById('app'));
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(245); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(246); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -27963,6 +27947,71 @@
 
 /***/ },
 /* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _eventbrite = __webpack_require__(245);
+
+	var _eventbrite2 = _interopRequireDefault(_eventbrite);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'eventbrite',
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      events: _eventbrite2.default.events
+	    };
+	  },
+
+	  render: function render() {
+	    // console.log(Data);
+	    console.log(this.state);
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      this.state.events.map(function (event) {
+	        return _react2.default.createElement(
+	          'div',
+	          { key: event.id },
+	          _react2.default.createElement('img', { src: event.logo === null ? 'https://goo.gl/K2gGp7}' : event.logo.url }),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              event.name.text
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              event.description.text
+	            )
+	          )
+	        );
+	      })
+	    );
+	  }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(246); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "eventbrite.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 245 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -31258,13 +31307,13 @@
 	};
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var isReactClassish = __webpack_require__(246),
-	    isReactElementish = __webpack_require__(247);
+	var isReactClassish = __webpack_require__(247),
+	    isReactElementish = __webpack_require__(248);
 
 	function makeExportsHot(m, React) {
 	  if (isReactElementish(m.exports, React)) {
@@ -31318,7 +31367,7 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports) {
 
 	function hasRender(Class) {
@@ -31368,10 +31417,10 @@
 	module.exports = isReactClassish;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isReactClassish = __webpack_require__(246);
+	var isReactClassish = __webpack_require__(247);
 
 	function isReactElementish(obj, React) {
 	  if (!obj) {
