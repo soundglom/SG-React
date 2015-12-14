@@ -1,39 +1,50 @@
 import React from 'react';
-import Data from 'json!../stores/eventbrite.json';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 
-const musicEvents = Data;
+// const event = Data.events.map(function(event){
+//   return event;
+// });
 
-console.log('musicEvents ', musicEvents);
 
 export default React.createClass({
-  getInitialState: function() {
-    return {
-      events: musicEvents
-    };
-  }, 
-
+  mixins: [PureRenderMixin],
+  handleClick: function(event) {
+    console.log("Click handler", event);
+    console.log("This event", this);
+    // this.setState({selected: this.state.event});
+  },
+  getEvent: function() {
+    return this.props.event || [];
+  },
+  
   render: function() {
-    // console.log(Data);
-    console.log(this.state);
-    return (
-      <div>
-      {this.state.events.map(function(event){
-        return <div key={event.id}>
-          <img src={event.logo === null ? 'https://goo.gl/K2gGp7}' : event.logo.url}/>
-          
+    return <div className="eventbrite-data">
+      {this.getEvent().map(event =>
+        <div key={event.id} onClick={console.log()}>
+          <img src={event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url} />
           <div>
-          <h2 >{event.name.text}</h2>
-          <p>{event.description.text}</p>
+            <h2 >{event.name.text}</h2>
+            <p>{event.description.text}</p>
           </div>
-
         </div>
+    )}
+    </div>
+  },
+  // render: function() {
+  //   return (
+  //     <div onClick={this.handleClick}>
+  //     {this.state.events.map(function(event){
+  //       return <div key={event.id} >
+  //         <img src={event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url}/>
+  //         <div>
+  //           <h2 >{event.name.text}</h2>
+  //           <p>{event.description.text}</p>
+  //         </div>
+  //       </div>
+  //     })}
+  //     </div>
 
-
-
-      })}
-      </div>
-
-    )
-  }
+  //   )
+  // }
 });
