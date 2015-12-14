@@ -9,19 +9,26 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState: function() {
+    return {
+      eventBriteEvent: null
+    }
+  },
   handleClick: function(event) {
-    console.log("Click handler", event);
-    console.log("This event", this);
-    // this.setState({selected: this.state.event});
+    // console.log("Click handler", event);
+    console.log("This event", event);
+    // this.setState({eventBriteEvent: this.state.event});
+    // console.log(this.props);
   },
   getEvent: function() {
+    console.log(this.props);
     return this.props.event || [];
   },
   
   render: function() {
-    return <div className="eventbrite-data">
+    return (<div className="eventbrite-data">
       {this.getEvent().map(event =>
-        <div key={event.id} onClick={console.log()}>
+        <div key={event.id} onClick={this.handleClick.bind(null, event)}>
           <img src={event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url} />
           <div>
             <h2 >{event.name.text}</h2>
@@ -29,7 +36,7 @@ export default React.createClass({
           </div>
         </div>
     )}
-    </div>
+    </div>);
   },
   // render: function() {
   //   return (
