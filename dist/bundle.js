@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "260c0c461bee41546124"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2bfb83187ec12862f0bd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8048,7 +8048,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var event = _eventbrite4.default.events;
+	var events = _eventbrite4.default.events;
 
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
@@ -8056,7 +8056,7 @@
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _eventbrite2.default })
 	);
 
-	_reactDom2.default.render(_react2.default.createElement(_eventbrite2.default, { event: event }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_eventbrite2.default, { event: events }), document.getElementById('app'));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(298); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
@@ -32756,6 +32756,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var events = _immutable.List.of(_eventbrite2.default.events.map(function (event) {
+	  event.logo ? event.logo.url : event.logo = { url: 'http://goo.gl/W9RF2D' };
 	  return event;
 	}));
 
@@ -41216,7 +41217,7 @@
 	        return _react2.default.createElement(
 	          'div',
 	          { key: event.id, onClick: _this.handleClick.bind(null, event) },
-	          _react2.default.createElement('img', { src: event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url }),
+	          _react2.default.createElement('img', { src: event.logo.url }),
 	          _react2.default.createElement(
 	            'div',
 	            null,

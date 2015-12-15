@@ -5,7 +5,7 @@ import App from './app';
 import Eventbrite from './results/components/eventbrite';
 import Data from 'json!./results/stores/eventbrite.json';
 
-const event = Data.events;
+const events = Data.events;
 
 
 const routes = <Route component={App}>
@@ -13,6 +13,6 @@ const routes = <Route component={App}>
 </Route>;
 
 ReactDOM.render(
-  <Eventbrite event={event}/>,
+  <Eventbrite event={events}/>,
   document.getElementById('app')
 );
