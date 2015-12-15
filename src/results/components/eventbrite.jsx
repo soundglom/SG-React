@@ -29,7 +29,7 @@ export default React.createClass({
     return (<div className="eventbrite-data">
       {this.getEvent().map(event =>
         <div key={event.id} onClick={this.handleClick.bind(null, event)}>
-          <img src={event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url} />
+          <img src={event.logo.url} />
           <div>
             <h2 >{event.name.text}</h2>
             <p>{event.description.text}</p>
