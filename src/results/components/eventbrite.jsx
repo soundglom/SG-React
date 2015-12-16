@@ -1,12 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-
-// const event = Data.events.map(function(event){
-//   return event;
-// });
-
-
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState: function() {
@@ -15,16 +9,13 @@ export default React.createClass({
     }
   },
   handleClick: function(event) {
-    // console.log("Click handler", event);
     console.log("This event", event);
     // this.setState({eventBriteEvent: this.state.event});
-    // console.log(this.props);
   },
   getEvent: function() {
-    console.log(this.props);
-    return this.props.event || [];
-  },
-  
+    console.log('this.props', this.props);
+    return this.props.events   || [];
+  },  
   render: function() {
     return (<div className="eventbrite-data">
       {this.getEvent().map(event =>
@@ -37,21 +28,5 @@ export default React.createClass({
         </div>
     )}
     </div>);
-  },
-  // render: function() {
-  //   return (
-  //     <div onClick={this.handleClick}>
-  //     {this.state.events.map(function(event){
-  //       return <div key={event.id} >
-  //         <img src={event.logo === null ? 'http://goo.gl/W9RF2D' : event.logo.url}/>
-  //         <div>
-  //           <h2 >{event.name.text}</h2>
-  //           <p>{event.description.text}</p>
-  //         </div>
-  //       </div>
-  //     })}
-  //     </div>
-
-  //   )
-  // }
+  }
 });
