@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2bfb83187ec12862f0bd"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "998cffbf98ec28da401c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8048,7 +8048,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var events = _eventbrite4.default.events;
+	// const events = Data.events;
 
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
@@ -8056,7 +8056,11 @@
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _eventbrite2.default })
 	);
 
-	_reactDom2.default.render(_react2.default.createElement(_eventbrite2.default, { event: events }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(
+	  _reactRouter2.default,
+	  null,
+	  routes
+	), document.getElementById('app'));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(298); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
@@ -32755,17 +32759,24 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var events = _immutable.List.of(_eventbrite2.default.events.map(function (event) {
+	var events = _eventbrite2.default.events.map(function (event) {
 	  event.logo ? event.logo.url : event.logo = { url: 'http://goo.gl/W9RF2D' };
+	  // console.log(event.logo.url);
 	  return event;
-	}));
+	});
+	// const events = List.of(EBData.events.map(function(event){
+	//   event.logo ? event.logo.url : event.logo = {url: 'http://goo.gl/W9RF2D'}
+	//   // console.log(event.logo.url);
+	//   return event;
+	// }));
 
-	console.log('Logging JSON Mapped', events);
+	// console.log('Logging JSON Mapped', events._tail.array[0]);
 
 	exports.default = _react2.default.createClass({
 	  displayName: 'app',
 
 	  render: function render() {
+	    console;
 	    return _react2.default.cloneElement(this.props.children, { events: events });
 	  }
 	});
@@ -41203,10 +41214,9 @@
 	    // console.log(this.props);
 	  },
 	  getEvent: function getEvent() {
-	    console.log(this.props);
-	    return this.props.event || [];
+	    console.log('this.props', this.props.events);
+	    return this.props.events || [];
 	  },
-
 	  render: function render() {
 	    var _this = this;
 
@@ -41216,7 +41226,7 @@
 	      this.getEvent().map(function (event) {
 	        return _react2.default.createElement(
 	          'div',
-	          { key: event.id, onClick: _this.handleClick.bind(null, event) },
+	          { key: event.id, onClick: (_this.handleClick.bind(null, event), _this.props.selectEvent(event)) },
 	          _react2.default.createElement('img', { src: event.logo.url }),
 	          _react2.default.createElement(
 	            'div',
