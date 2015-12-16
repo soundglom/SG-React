@@ -1,12 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-
-// const event = Data.events.map(function(event){
-//   return event;
-// });
-
-
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState: function() {
@@ -15,13 +9,11 @@ export default React.createClass({
     }
   },
   handleClick: function(event) {
-    // console.log("Click handler", event);
     console.log("This event", event);
     // this.setState({eventBriteEvent: this.state.event});
-    // console.log(this.props);
   },
   getEvent: function() {
-    console.log('this.props', this.props.events);
+    console.log('this.props', this.props);
     return this.props.events   || [];
   },  
   render: function() {

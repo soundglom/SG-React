@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "998cffbf98ec28da401c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "41bf26ba7b26f47339eb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8047,8 +8047,6 @@
 	var _eventbrite4 = _interopRequireDefault(_eventbrite3);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// const events = Data.events;
 
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
@@ -32759,16 +32757,22 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var events = _eventbrite2.default.events.map(function (event) {
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	var fixedEvents = _eventbrite2.default.events.map(function (event) {
 	  event.logo ? event.logo.url : event.logo = { url: 'http://goo.gl/W9RF2D' };
 	  // console.log(event.logo.url);
 	  return event;
 	});
-	// const events = List.of(EBData.events.map(function(event){
+
+	// const events = EBData.events.map(function(event){
 	//   event.logo ? event.logo.url : event.logo = {url: 'http://goo.gl/W9RF2D'}
 	//   // console.log(event.logo.url);
 	//   return event;
-	// }));
+	// });
+
+	var events = _immutable.List.of.apply(_immutable.List, _toConsumableArray(fixedEvents));
+	// const events = fixedEvents;
 
 	// console.log('Logging JSON Mapped', events._tail.array[0]);
 
@@ -32776,7 +32780,7 @@
 	  displayName: 'app',
 
 	  render: function render() {
-	    console;
+
 	    return _react2.default.cloneElement(this.props.children, { events: events });
 	  }
 	});
@@ -41226,7 +41230,7 @@
 	      this.getEvent().map(function (event) {
 	        return _react2.default.createElement(
 	          'div',
-	          { key: event.id, onClick: (_this.handleClick.bind(null, event), _this.props.selectEvent(event)) },
+	          { key: event.id, onClick: _this.handleClick.bind(null, event) },
 	          _react2.default.createElement('img', { src: event.logo.url }),
 	          _react2.default.createElement(
 	            'div',
