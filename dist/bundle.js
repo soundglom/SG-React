@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "41bf26ba7b26f47339eb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2e3058e248717499c045"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8042,6 +8042,10 @@
 
 	var _eventbrite2 = _interopRequireDefault(_eventbrite);
 
+	var _selectedEvent = __webpack_require__(305);
+
+	var _selectedEvent2 = _interopRequireDefault(_selectedEvent);
+
 	var _eventbrite3 = __webpack_require__(297);
 
 	var _eventbrite4 = _interopRequireDefault(_eventbrite3);
@@ -8051,7 +8055,8 @@
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
 	  { component: _app2.default },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _eventbrite2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _eventbrite2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/selected-event', component: _selectedEvent2.default })
 	);
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -32761,26 +32766,15 @@
 
 	var fixedEvents = _eventbrite2.default.events.map(function (event) {
 	  event.logo ? event.logo.url : event.logo = { url: 'http://goo.gl/W9RF2D' };
-	  // console.log(event.logo.url);
 	  return event;
 	});
 
-	// const events = EBData.events.map(function(event){
-	//   event.logo ? event.logo.url : event.logo = {url: 'http://goo.gl/W9RF2D'}
-	//   // console.log(event.logo.url);
-	//   return event;
-	// });
-
 	var events = _immutable.List.of.apply(_immutable.List, _toConsumableArray(fixedEvents));
-	// const events = fixedEvents;
-
-	// console.log('Logging JSON Mapped', events._tail.array[0]);
 
 	exports.default = _react2.default.createClass({
 	  displayName: 'app',
 
 	  render: function render() {
-
 	    return _react2.default.cloneElement(this.props.children, { events: events });
 	  }
 	});
@@ -41198,10 +41192,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const event = Data.events.map(function(event){
-	//   return event;
-	// });
-
 	exports.default = _react2.default.createClass({
 	  displayName: 'eventbrite',
 
@@ -41212,13 +41202,11 @@
 	    };
 	  },
 	  handleClick: function handleClick(event) {
-	    // console.log("Click handler", event);
 	    console.log("This event", event);
 	    // this.setState({eventBriteEvent: this.state.event});
-	    // console.log(this.props);
 	  },
 	  getEvent: function getEvent() {
-	    console.log('this.props', this.props.events);
+	    // console.log('this.props', this.props);
 	    return this.props.events || [];
 	  },
 	  render: function render() {
@@ -41231,18 +41219,18 @@
 	        return _react2.default.createElement(
 	          'div',
 	          { key: event.id, onClick: _this.handleClick.bind(null, event) },
-	          _react2.default.createElement('img', { src: event.logo.url }),
+	          _react2.default.createElement('img', { className: 'eventImage', src: event.logo.url }),
 	          _react2.default.createElement(
 	            'div',
-	            null,
+	            { className: 'eventInfo' },
 	            _react2.default.createElement(
 	              'h2',
-	              null,
+	              { className: 'eventTitle' },
 	              event.name.text
 	            ),
 	            _react2.default.createElement(
 	              'p',
-	              null,
+	              { className: 'eventDescr' },
 	              event.description.text
 	            )
 	          )
@@ -41340,6 +41328,63 @@
 	}
 
 	module.exports = shallowCompare;
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _eventbrite = __webpack_require__(297);
+
+	var _eventbrite2 = _interopRequireDefault(_eventbrite);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	console.log('Selected event test: ', _eventbrite2.default.events[1]);
+	var selected = _eventbrite2.default.events[1];
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'selected-event',
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'selectedEvent' },
+	      _react2.default.createElement('img', { className: 'selectedEventImage', src: selected.logo.url }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'selectedEventInfo' },
+	        '// ',
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          selected.name.text
+	        ),
+	        '// ',
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          selected.description
+	        )
+	      )
+	    );
+	  }
+
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(298); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "selected-event.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }
 /******/ ]);

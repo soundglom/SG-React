@@ -13,17 +13,17 @@ export default React.createClass({
     // this.setState({eventBriteEvent: this.state.event});
   },
   getEvent: function() {
-    console.log('this.props', this.props);
+    // console.log('this.props', this.props);
     return this.props.events   || [];
   },  
   render: function() {
     return (<div className="eventbrite-data">
       {this.getEvent().map(event =>
         <div key={event.id} onClick={this.handleClick.bind(null, event)}>
-          <img src={event.logo.url} />
-          <div>
-            <h2 >{event.name.text}</h2>
-            <p>{event.description.text}</p>
+          <img className="eventImage" src={event.logo.url} />
+          <div className="eventInfo">
+            <h2 className="eventTitle">{event.name.text}</h2>
+            <p className="eventDescr">{event.description.text}</p>
           </div>
         </div>
     )}
