@@ -1,16 +1,23 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
+
 export default React.createClass({
   mixins: [PureRenderMixin],
+  selectedEvent: null,
   getInitialState: function() {
     return {
-      eventBriteEvent: null
-    }
+      eventBriteEvent: null,
+      eventID: null
+    };
   },
   handleClick: function(event) {
     console.log("This event", event);
-    // this.setState({eventBriteEvent: this.state.event});
+    this.selectedEvent = event;
+    this.setState({
+      eventBriteEvent: event,
+      eventID: event.id
+    });
   },
   getEvent: function() {
     // console.log('this.props', this.props);
@@ -19,7 +26,7 @@ export default React.createClass({
   render: function() {
     return (<div className="eventbrite-data">
       {this.getEvent().map(event =>
-        <div key={event.id} onClick={this.handleClick.bind(null, event)}>
+        <div key={event.id} ref="searchResults" onClick={this.handleClick.bind(null, event)}>
           <img className="eventImage" src={event.logo.url} />
           <div className="eventInfo">
             <h2 className="eventTitle">{event.name.text}</h2>
@@ -30,3 +37,9 @@ export default React.createClass({
     </div>);
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    selectedEvent: state.getIn([even])
+  }
+}

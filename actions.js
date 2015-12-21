@@ -1,0 +1,4 @@
+export const SEARCH = 'SEARCH';
+export const GET_API_RESULTS = 'GET_API_RESULTS';
+export const RENDER_API_RESULTS = 'RENDER_API_RESULTS';
+export const SELECT_EVENT = 'SELECT_EVENT';
