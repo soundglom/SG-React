@@ -1,6 +1,9 @@
 #Soundglom React
+*This project is a migration of a previous project to React/Redux*
 
-#Getting Started
+See the original [Soundglomerate repo](https://github.com/De-La-Soul/soundglomerate) for more information.
+
+##Getting Started
 
 **first**
 - `$ npm install`
@@ -12,3 +15,8 @@
 - `$ webpack-dev-server`
 
 **Navigate to localhost:8080**
+
+##Contributing
+
+[Contribution guide](CONTRIBUTING.md)
+[Style guide](STYLE-GUIDE.md)
