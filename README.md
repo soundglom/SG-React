@@ -17,6 +17,5 @@ See the original [Soundglomerate repo](https://github.com/De-La-Soul/soundglomer
 **Navigate to localhost:8080**
 
 ##Contributing
-
-[Contribution guide](CONTRIBUTING.md)
-[Style guide](STYLE-GUIDE.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Style guide](STYLE-GUIDE.md)
